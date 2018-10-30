@@ -1,0 +1,14 @@
+/*
+ * View Defalt Color.ajs
+ * 
+ * Colorizing view by default colors for Archi tool.
+ * 
+ * (c) 2018 David Škarka
+ * 
+ * 
+ */
+
+load(__DIR__ + "lib/heatmap.ajs");
+
+// Colorize by default
+makeHeatMap("","application-component","", defaultColorAppLayer);

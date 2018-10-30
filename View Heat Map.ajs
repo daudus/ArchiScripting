@@ -1,0 +1,22 @@
+/*
+ * View Heat Map.ajs
+ * 
+ * Heat Mapping on Diagrams for Archi tool.
+ * 
+ * (c) 2018 David Škarka
+ * 
+ * 
+ */
+
+load(__DIR__ + "lib/heatmap.ajs");
+
+// Colorizing function for EA_DeliveryType property
+function colorizeEADeliveryType(prop)
+{
+  if (prop=="Group in-house solution") return chroma('red');
+  else if (prop =="Local in-house solution") return chroma('blue');
+  else return "#0000FF";
+}
+
+// Colorize by property
+makeHeatMap("","application-component","EA_DeliveryType", colorizeEADeliveryType);
