@@ -1,0 +1,42 @@
+/*
+ * New Archi Script
+ */
+ 
+var ROOT_FOLDER = "Application";
+
+
+function proceed_folder2(folder, ident) {
+  console.log(ident + " " + "PROCEEDED: " + $(folder));
+  folder.find("folder").each(function(subfolder) {
+    console.log(ident + " " + "INNER SUBFOLDER: " + $(subfolder));
+    proceed_folder($(subfolder),ident + " ");
+  });
+  folder.find().each(function(element) {
+    console.log(ident + " " + "INNER ELEMENT: " + $(element));
+  });
+}
+
+function _dump(ident, d) {
+  if(!d) console.log(ident, "[" + d.name + ":" + d.id + "]");
+}
+
+//recursive function
+function proceed_folder(folder, ident) {
+  var i = ident + "\t";
+  if(!folder) console.log(ident + " " + "PROCEEDED: " + $(folder));
+  folder.children("folder").each(function(subfolder) {
+    console.log(i + "INNER SUBFOLDER: " + $(subfolder) + subfolder.id);
+    proceed_folder($(subfolder),i);
+  });
+  folder.children("element").each(function(element) {
+    console.log(i + "INNER ELEMENT: " + $(element) + element.id);
+  });
+}
+
+console.clear();
+console.log("Archi Script for elements in the folder");
+
+//select root folder
+selection = $("folder").filter("."+ROOT_FOLDER);
+console.log("ROOT FOLDER: " + selection);
+proceed_folder(selection, "");
