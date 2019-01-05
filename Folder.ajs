@@ -5,21 +5,6 @@
 var ROOT_FOLDER = "Application";
 
 
-function proceed_folder2(folder, ident) {
-  console.log(ident + " " + "PROCEEDED: " + $(folder));
-  folder.find("folder").each(function(subfolder) {
-    console.log(ident + " " + "INNER SUBFOLDER: " + $(subfolder));
-    proceed_folder($(subfolder),ident + " ");
-  });
-  folder.find().each(function(element) {
-    console.log(ident + " " + "INNER ELEMENT: " + $(element));
-  });
-}
-
-function _dump(ident, d) {
-  if(!d) console.log(ident, "[" + d.name + ":" + d.id + "]");
-}
-
 //recursive function
 function proceed_folder(folder, ident) {
   var i = ident + "\t";
